@@ -1,7 +1,3 @@
-pod "/Users/petermeyers/Dev/Personal/PMUtils", :path => "..//Users/petermeyers/Dev/Personal/PMUtils.podspec"
+platform :ios
 
-target "Demo" do
-end
-
-target "DemoTests" do
-end
+podspec :path => “../PMUtils.podspec"
