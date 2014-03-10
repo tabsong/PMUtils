@@ -1,0 +1,7 @@
+pod "/Users/petermeyers/Dev/Personal/PMUtils", :path => "..//Users/petermeyers/Dev/Personal/PMUtils.podspec"
+
+target "Demo" do
+end
+
+target "DemoTests" do
+end
