@@ -200,7 +200,7 @@ static NSUInteger const ScaleDownFactor = 4;
 		
         if (hasBlur) {
             CGFloat inputRadius = blurRadius * 1;
-            NSUInteger radius = floor(inputRadius * 3. * sqrt(2 * M_PI) / 4 + 0.5);
+            uint32_t radius = floorf(inputRadius * 3. * sqrt(2 * M_PI) / 4 + 0.5);
             
             if (radius % 2 != 1) {
                 radius += 1;
