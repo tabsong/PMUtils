@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
-  s.name = 'PMUtils'
-  s.version = '0.0.1'
-  s.summary = 'Categories on Foundation and UIKit classes that offer extended functionality'
+  s.name = "PMUtils"
+  s.version = "0.0.1"
+  s.summary = "Categories on Foundation and UIKit classes that offer extended functionality"
   s.homepage = 'https://github.com/petermeyers1/PMUtils'
   s.license = 'MIT'
   s.author = { 'Peter Meyers' => 'petermeyers1@gmail.com' }
