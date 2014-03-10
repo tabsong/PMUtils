@@ -17,10 +17,7 @@ PMUtils is not publicly available through [CocoaPods](http://cocoapods.org), to 
 
 $ pod repo add 'PMUtils' 'https://github.com/petermeyers1/PMUtils.git'
 
-2) then add the remote to keep our local fork up to date
-
-$ cd ~/.cocoapods/repos/PMUtils
-$ git remote add upstream git://github.com/CocoaPods/Specs.git
+2) 
 
 
 
