@@ -11,11 +11,16 @@ To run the example project; clone the repo, and run `pod install` from the Examp
 
 ## Installation
 
-PMUtils is not publicly available through [CocoaPods](http://cocoapods.org), to install
-it
-    $ pod repo add 'PMUtils' 'https://github.com/petermeyers1/PMUtils.git'
+PMUtils is not publicly available through [CocoaPods](http://cocoapods.org), to install:
 
-then
+1) clone into cocoa pods directory
+
+$ pod repo add 'PMUtils' 'https://github.com/petermeyers1/PMUtils.git'
+
+2) then add the remote to keep our local fork up to date
+
+$ cd ~/.cocoapods/repos/PMUtils
+$ git remote add upstream git://github.com/CocoaPods/Specs.git
 
 
 
