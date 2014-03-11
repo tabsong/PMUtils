@@ -1,3 +1,4 @@
-platform :ios
+xcodeproj 'PMUtils-iOSExample/PMUtils-iOSExample.xcodeproj'
 
-podspec :path => “../PMUtils.podspec"
+
+pod "PMUtils", :path => "../PMUtils.podspec"

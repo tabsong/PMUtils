@@ -2,14 +2,11 @@
 <Workspace
    version = "1.0">
    <Group
-      location = "container:../Classes"
-      name = "PMUtils">
+      location = "group:../Classes"
+      name = "Classes">
       <Group
          location = "group:ios"
          name = "ios">
-         <FileRef
-            location = "group:PMUtils.h">
-         </FileRef>
          <FileRef
             location = "group:NSData+PMUtils.h">
          </FileRef>
@@ -39,6 +36,9 @@
          </FileRef>
          <FileRef
             location = "group:NSThread+PMUtils.m">
+         </FileRef>
+         <FileRef
+            location = "group:PMUtils.h">
          </FileRef>
          <FileRef
             location = "group:UIColor+PMUtils.h">
@@ -83,6 +83,9 @@
       </Group>
    </Group>
    <FileRef
-      location = "container:PMUtils-iOSExample/PMUtils-iOSExample.xcodeproj">
+      location = "group:PMUtils-iOSExample/PMUtils-iOSExample.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>
