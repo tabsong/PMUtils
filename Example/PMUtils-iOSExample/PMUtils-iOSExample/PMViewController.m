@@ -42,36 +42,25 @@
 - (IBAction)tap:(UITapGestureRecognizer *)sender
 {
 	UIImage *img = [UIImage imageNamed:@"Sample.jpg"];
-	UIImage *imgOne;
-	UIImage *imgtwo;
-	
-	CGRect imgRect =  { CGPointZero, img.size };
-	
-	CFTimeInterval start = CACurrentMediaTime();
-	for (int i = 0; i < 3; i++) {
-		imgOne = [img applyBlurWithCrop:imgRect
-								  blurRadius:10
-								   tintColor:[UIColor clearColor]
-					   saturationDeltaFactor:0
-								   maskImage:nil];
-	}
-	CFTimeInterval duration = CACurrentMediaTime() - start;
-	
-	NSLog(@"1: time %f", duration);
-	
-	
-	start = CACurrentMediaTime();
-	for (int i = 0; i < 3; i++) {
-			imgtwo = [img blurredImageWithRadius:1
-									  iterations:2
-								 scaleDownFactor:2
-									  saturation:0
-									   tintColor:nil
-											crop:CGRectZero];
-	}
 
+	CFTimeInterval start = CACurrentMediaTime();
+	UIImage *imgOne = [img blurredImageWithRadius:10
+									   iterations:3
+								  scaleDownFactor:2
+									   saturation:1
+										tintColor:nil
+											 crop:CGRectZero];
+	CFTimeInterval duration = CACurrentMediaTime() - start;
+	NSLog(@"1: time %f", duration);
+
+	start = CACurrentMediaTime();
+	UIImage *imgtwo = [img blurredImageWithRadius:20
+									   iterations:4
+								  scaleDownFactor:4
+									   saturation:0
+										tintColor:nil
+											 crop:CGRectZero];
 	duration = CACurrentMediaTime() - start;
-	
 	NSLog(@"2: time %f", duration);
 	
 	self.one.image = imgOne;
