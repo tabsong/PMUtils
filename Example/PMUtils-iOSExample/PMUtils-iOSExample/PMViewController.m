@@ -7,9 +7,11 @@
 //
 
 #import "PMViewController.h"
+#import "PMUtils.h"
 
 @interface PMViewController ()
-
+@property (nonatomic, strong) UIImageView *one;
+@property (nonatomic, strong) UIImageView *two;
 @end
 
 @implementation PMViewController
@@ -18,12 +20,62 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+	
+	CGRect rect = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height/2.0f);
+	
+	self.one = [[UIImageView alloc] initWithFrame:rect];
+//	self.one.contentMode = UIViewContentModeTopLeft;
+	rect.origin.y = rect.size.height;
+	
+	self.two = [[UIImageView alloc] initWithFrame:rect];
+//	self.two.contentMode = UIViewContentModeTopLeft;
+	
+	[self.view addSubview:self.one];
+	[self.view addSubview:self.two];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)tap:(UITapGestureRecognizer *)sender
+{
+	UIImage *img = [UIImage imageNamed:@"Sample.jpg"];
+	UIImage *imgOne;
+	UIImage *imgtwo;
+	
+	CGRect imgRect =  { CGPointZero, img.size };
+	
+	CFTimeInterval start = CACurrentMediaTime();
+	for (int i = 0; i < 3; i++) {
+		imgOne = [img applyBlurWithCrop:imgRect
+								  blurRadius:10
+								   tintColor:[UIColor clearColor]
+					   saturationDeltaFactor:0
+								   maskImage:nil];
+	}
+	CFTimeInterval duration = CACurrentMediaTime() - start;
+	
+	NSLog(@"1: time %f", duration);
+	
+	
+	start = CACurrentMediaTime();
+	for (int i = 0; i < 3; i++) {
+			imgtwo = [img blurredImageWithRadius:1
+									  iterations:2
+								 scaleDownFactor:2
+									  saturation:0
+									   tintColor:nil
+											crop:CGRectZero];
+	}
+
+	duration = CACurrentMediaTime() - start;
+	
+	NSLog(@"2: time %f", duration);
+	
+	self.one.image = imgOne;
+	self.two.image = imgtwo;
 }
 
 @end

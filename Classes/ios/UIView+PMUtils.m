@@ -37,7 +37,6 @@
 	UIGraphicsEndImageContext();
 	
 	return [snapshot applyBlurWithCrop:bounds
-								resize:size
 							blurRadius:blurRadius
 							 tintColor:tintColor
 				 saturationDeltaFactor:saturationDeltaFactor

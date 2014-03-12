@@ -3,7 +3,7 @@
    version = "1.0">
    <Group
       location = "group:../Classes"
-      name = "Classes">
+      name = "PMUtils">
       <Group
          location = "group:ios"
          name = "ios">
