@@ -8,6 +8,12 @@
          location = "group:ios"
          name = "ios">
          <FileRef
+            location = "group:PMOrderedDictionary.h">
+         </FileRef>
+         <FileRef
+            location = "group:PMOrderedDictionary.m">
+         </FileRef>
+         <FileRef
             location = "group:NSData+PMUtils.h">
          </FileRef>
          <FileRef

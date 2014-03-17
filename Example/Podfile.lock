@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: ../PMUtils.podspec
 
 SPEC CHECKSUMS:
-  PMUtils: d725803c11b9a38d7c8d2f82fa2daddcaa083cff
+  PMUtils: 790292e3b5735856528a2f0b37aea510793b0a39
 
 COCOAPODS: 0.29.0
