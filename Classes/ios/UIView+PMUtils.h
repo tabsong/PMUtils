@@ -17,7 +17,7 @@ typedef NS_OPTIONS(NSInteger, PMDirection) {
 
 + (NSString *) nibName;
 
-+ (UINib *) nib;
++ (instancetype) instanceFromNibWithOwner:(id)ownerOrNil;
 
 - (void) removeSubviews;
 
