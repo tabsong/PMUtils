@@ -22,6 +22,9 @@
 #import "UITableView+PMUtils.h"
 #import "PMOrderedDictionary.h"
 
-#define DEF_weakSelf __weak __typeof(self) weakSelf = self;
+#define DEF_weakSelf    __weak __typeof(self) weakSelf = self;
+#define oneHour         60*60;
+#define oneDay          oneHour*24
+#define oneWeek         oneDay*7
 
 #endif
