@@ -22,4 +22,6 @@
 #import "UITableView+PMUtils.h"
 #import "PMOrderedDictionary.h"
 
+#define DEF_weakSelf __weak __typeof(self) weakSelf = self;
+
 #endif
