@@ -21,12 +21,13 @@ typedef NS_OPTIONS(NSInteger, PMDirection) {
 
 - (void) removeSubviews;
 
-- (void) centerInRect:(CGRect)rect forDirection:(PMDirection)direction;
-
 - (UIImage *)blurredViewWithRadius:(CGFloat)radius
 						iterations:(NSUInteger)iterations
 				   scaleDownFactor:(NSUInteger)scaleDownFactor
 						saturation:(CGFloat)saturation
 						 tintColor:(UIColor *)tintColor
 							  crop:(CGRect)crop;
+
+- (void) centerInRect:(CGRect)rect forDirection:(PMDirection)direction;
+
 @end
