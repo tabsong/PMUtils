@@ -28,6 +28,21 @@
     }
 }
 
+- (void) centerInRect:(CGRect)rect forDirection:(PMDirection)direction;
+{
+    CGRect frame = self.frame;
+    
+    if (direction & PMDirectionHorizontal) {
+        frame.origin.x = (rect.size.width - frame.size.width) / 2.0f + rect.origin.x;
+    }
+    
+    if (direction & PMDirectionVertical) {
+        frame.origin.y = (rect.size.height - frame.size.height) / 2.0f + rect.origin.y;
+    }
+    
+    self.frame = frame;
+}
+
 - (UIImage *)blurredViewWithRadius:(CGFloat)radius
 						 iterations:(NSUInteger)iterations
 					scaleDownFactor:(NSUInteger)scaleDownFactor
