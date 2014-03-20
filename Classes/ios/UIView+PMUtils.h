@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_OPTIONS(NSInteger, PMDirection) {
-    PMDirectionVertical = 0,
-    PMDirectionHorizontal = 1
+    PMDirectionVertical = 1 << 0,
+    PMDirectionHorizontal = 1 << 1
 };
 
 @interface UIView (PMUtils)
