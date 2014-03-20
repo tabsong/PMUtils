@@ -21,6 +21,7 @@
 #import "NSIndexPath+PMUtils.h"
 #import "UITableView+PMUtils.h"
 #import "PMOrderedDictionary.h"
+#import "NSArray+PMUtils.h"
 
 #define DEF_weakSelf    __weak __typeof(self) weakSelf = self;
 #define oneHour         60*60;

@@ -33,6 +33,8 @@
 
 - (NSUInteger)indexOfObject:(id)object;
 
+- (NSInteger) distanceFromIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex circular:(BOOL)circular;
+
 - (NSEnumerator *)reverseKeyEnumerator;
 
 @end

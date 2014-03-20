@@ -22,6 +22,7 @@
 //
 
 #import "PMOrderedDictionary.h"
+#import "NSArray+PMUtils.h"
 
 NSString *DescriptionForObject(NSObject *object, id locale, NSUInteger indent)
 {
@@ -145,6 +146,11 @@ NSString *DescriptionForObject(NSObject *object, id locale, NSUInteger indent)
         }
     }
     return NSNotFound;
+}
+
+- (NSInteger) distanceFromIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex circular:(BOOL)circular
+{
+    return [self.array distanceFromIndex:fromIndex toIndex:toIndex circular:circular];
 }
 
 - (NSString *)descriptionWithLocale:(id)locale indent:(NSUInteger)level
