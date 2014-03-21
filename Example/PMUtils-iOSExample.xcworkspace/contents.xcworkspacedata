@@ -97,6 +97,12 @@
          <FileRef
             location = "group:UINib+PMUtils.m">
          </FileRef>
+         <FileRef
+            location = "group:UICollectionView+PMUtils.h">
+         </FileRef>
+         <FileRef
+            location = "group:UICollectionView+PMUtils.m">
+         </FileRef>
       </Group>
       <Group
          location = "group:osx"
