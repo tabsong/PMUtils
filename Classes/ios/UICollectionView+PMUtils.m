@@ -8,6 +8,30 @@
 
 #import "UICollectionView+PMUtils.h"
 
+static inline CGFloat PMSquaredDistanceFromRectToPoint(CGRect rect, CGPoint point)
+{
+    CGPoint closestPoint = rect.origin;
+    
+    if (point.x > CGRectGetMaxX(rect)) {
+        closestPoint.x += rect.size.width;
+    }
+    else if (point.x > CGRectGetMinX(rect)) {
+        closestPoint.x = point.x;
+    }
+    
+    if (point.y > CGRectGetMaxY(rect)) {
+        closestPoint.y += rect.size.height;
+    }
+    else if (point.y > CGRectGetMinY(rect)) {
+        closestPoint.y = point.y;
+    }
+    
+    CGFloat dx = point.x - closestPoint.x;
+    CGFloat dy = point.y - closestPoint.y;
+    
+    return dx*dx + dy*dy;
+}
+
 @implementation UICollectionView (PMUtils)
 
 - (NSIndexPath *) visibleIndexPathNearestToPoint:(CGPoint)point
@@ -53,6 +77,13 @@
     return nearestIndexPath;
 }
 
+- (CGPoint) contentOffsetForCenteredRect:(CGRect)rect
+{
+    CGFloat offsetX = rect.origin.x - (self.bounds.size.width - rect.size.width) / 2.0f;
+    CGFloat offsetY = rect.origin.y - (self.bounds.size.height - rect.size.height) / 2.0f;
+    return CGPointMake(offsetX, offsetY);
+}
+
 - (CGFloat) squaredDistanceFromItemAtIndexPath:(NSIndexPath *)indexPath toPoint:(CGPoint)point
 {
     UICollectionViewLayoutAttributes *attributes = [self layoutAttributesForItemAtIndexPath:indexPath];
@@ -63,30 +94,6 @@
     }
     
     return PMSquaredDistanceFromRectToPoint(frame, point);
-}
-
-static inline CGFloat PMSquaredDistanceFromRectToPoint(CGRect rect, CGPoint point)
-{
-    CGPoint closestPoint = rect.origin;
-    
-    if (point.x > CGRectGetMaxX(rect)) {
-        closestPoint.x += rect.size.width;
-    }
-    else if (point.x > CGRectGetMinX(rect)) {
-        closestPoint.x = point.x;
-    }
-    
-    if (point.y > CGRectGetMaxY(rect)) {
-        closestPoint.y += rect.size.height;
-    }
-    else if (point.y > CGRectGetMinY(rect)) {
-        closestPoint.y = point.y;
-    }
-    
-    CGFloat dx = point.x - closestPoint.x;
-    CGFloat dy = point.y - closestPoint.y;
-    
-    return dx*dx + dy*dy;
 }
 
 @end
