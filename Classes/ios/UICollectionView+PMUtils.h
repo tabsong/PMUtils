@@ -12,4 +12,7 @@
 
 - (NSIndexPath *) visibleIndexPathNearestToPoint:(CGPoint)point;
 
+// Less efficient than -visibleIndexPathNearestToPoint:
+- (NSIndexPath *) indexPathNearestToPoint:(CGPoint)point;
+
 @end

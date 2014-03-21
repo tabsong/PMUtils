@@ -17,14 +17,7 @@
     
     for (NSIndexPath *indexPath in self.indexPathsForVisibleItems) {
         
-        UICollectionViewLayoutAttributes *attributes = [self layoutAttributesForItemAtIndexPath:indexPath];
-        CGRect frame = attributes.frame;
-        
-        if (CGRectContainsPoint(frame, point)) {
-            return indexPath;
-        }
-
-        CGFloat distance = [self squaredDistanceFromRect:attributes.frame toPoint:point];
+        CGFloat distance = [self squaredDistanceFromItemAtIndexPath:indexPath toPoint:point];
         
         if (distance < closestDistance) {
             closestDistance = distance;
@@ -34,7 +27,45 @@
     return nearestIndexPath;
 }
 
-- (CGFloat) squaredDistanceFromRect:(CGRect)rect toPoint:(CGPoint)point
+- (NSIndexPath *) indexPathNearestToPoint:(CGPoint)point
+{
+    NSIndexPath *nearestIndexPath = nil;
+    CGFloat closestDistance = MAXFLOAT;
+    
+    NSInteger sections = [self numberOfSections];
+    
+    for (NSInteger section = 0; section < sections; section++) {
+
+        NSInteger items = [self numberOfItemsInSection:section];
+        
+        for (NSInteger item = 0; item < items; item++) {
+            
+            NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item inSection:section];
+            
+            CGFloat distance = [self squaredDistanceFromItemAtIndexPath:indexPath toPoint:point];
+            
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                nearestIndexPath = indexPath;
+            }
+        }
+    }
+    return nearestIndexPath;
+}
+
+- (CGFloat) squaredDistanceFromItemAtIndexPath:(NSIndexPath *)indexPath toPoint:(CGPoint)point
+{
+    UICollectionViewLayoutAttributes *attributes = [self layoutAttributesForItemAtIndexPath:indexPath];
+    CGRect frame = attributes.frame;
+    
+    if (CGRectContainsPoint(frame, point)) {
+        return 0.0f;
+    }
+    
+    return PMSquaredDistanceFromRectToPoint(frame, point);
+}
+
+static inline CGFloat PMSquaredDistanceFromRectToPoint(CGRect rect, CGPoint point)
 {
     CGPoint closestPoint = rect.origin;
     
