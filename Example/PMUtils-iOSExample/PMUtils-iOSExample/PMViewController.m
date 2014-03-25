@@ -22,13 +22,9 @@
 	// Do any additional setup after loading the view, typically from a nib.
 	
 	CGRect rect = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height/2.0f);
-	
 	self.one = [[UIImageView alloc] initWithFrame:rect];
-//	self.one.contentMode = UIViewContentModeTopLeft;
 	rect.origin.y = rect.size.height;
-	
 	self.two = [[UIImageView alloc] initWithFrame:rect];
-//	self.two.contentMode = UIViewContentModeTopLeft;
 	
 	[self.view addSubview:self.one];
 	[self.view addSubview:self.two];
