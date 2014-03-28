@@ -17,6 +17,8 @@ typedef NS_OPTIONS(NSInteger, PMDirection) {
 
 + (NSString *) nibName;
 
++ (UINib *) nib;
+
 + (instancetype) instanceFromNibWithOwner:(id)ownerOrNil;
 
 - (void) removeSubviews;
@@ -28,6 +30,26 @@ typedef NS_OPTIONS(NSInteger, PMDirection) {
 						 tintColor:(UIColor *)tintColor
 							  crop:(CGRect)crop;
 
+#pragma mark - Layout
+
 - (void) centerInRect:(CGRect)rect forDirection:(PMDirection)direction;
+
+- (void) setFX:(CGFloat)x;
+
+- (void) setFY:(CGFloat)y;
+
+- (void) setFOrigin:(CGPoint)origin;
+
+- (void) setFWidth:(CGFloat)width;
+
+- (void) setFHeight:(CGFloat)width;
+
+- (void) setFSize:(CGSize)size;
+
+- (void) setBWidth:(CGFloat)width;
+
+- (void) setBHeight:(CGFloat)height;
+
+- (void) setBSize:(CGSize)size;
 
 @end
