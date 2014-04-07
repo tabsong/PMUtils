@@ -26,6 +26,12 @@
 #import "PMProtocolInterceptor.h"
 #import "UIScrollView+PMUtils.h"
 
+#if DEBUG
+#define DLog(args...)   NSLog(args)
+#else
+#define DLog(args...)
+#endif
+
 #define DEF_weakSelf    __weak __typeof(self) weakSelf = self;
 #define oneHour         60*60;
 #define oneDay          oneHour*24
