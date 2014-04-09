@@ -25,6 +25,7 @@
 #import "UICollectionView+PMUtils.h"
 #import "PMProtocolInterceptor.h"
 #import "UIScrollView+PMUtils.h"
+#import "UICollectionViewFlowLayout+PMUtils.h"
 
 #if DEBUG
 #define DLog(args...)   NSLog(args)
@@ -33,8 +34,8 @@
 #endif
 
 #define DEF_weakSelf    __weak __typeof(self) weakSelf = self;
-#define oneHour         60*60;
-#define oneDay          oneHour*24
-#define oneWeek         oneDay*7
+#define oneHour         (60*60)
+#define oneDay          (oneHour*24)
+#define oneWeek         (oneDay*7)
 
 #endif
