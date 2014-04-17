@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_OPTIONS(NSInteger, PMDirection) {
+typedef NS_OPTIONS(NSUInteger, PMDirection) {
     PMDirectionVertical = 1 << 0,
     PMDirectionHorizontal = 1 << 1
 };

@@ -26,6 +26,7 @@
 #import "PMProtocolInterceptor.h"
 #import "UIScrollView+PMUtils.h"
 #import "UICollectionViewFlowLayout+PMUtils.h"
+#import "UICollectionReusableView+PMUtils.h"
 
 #if DEBUG
 #define DLog(args...)   NSLog(args)

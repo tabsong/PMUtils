@@ -20,15 +20,21 @@
 {
     //cache nib to prevent unnecessary filesystem access
     static NSCache *nibCache = nil;
-    if (!nibCache) {
-        nibCache = [[NSCache alloc] init];
-    }
+    static dispatch_once_t cacheToken;
+    dispatch_once(&cacheToken, ^{
+        nibCache = [NSCache new];
+    });
     
     NSString *name = [self nibName];
     UINib *nib = [nibCache objectForKey:name];
     
     if (!nib) {
-        nib = [UINib nibWithNibName:name bundle:nil];
+        NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"nib"];
+        if (path) {
+            NSData *nibData = [[NSFileManager defaultManager] contentsAtPath:path];
+            nib = [UINib nibWithData:nibData bundle:[NSBundle mainBundle]];
+        }
+        
         [nibCache setObject:nib?: [NSNull null]  forKey:name];
     }
     else if ([nib isEqual:[NSNull null]]) {
@@ -40,10 +46,14 @@
 
 + (instancetype) instanceFromNibWithOwner:(id)ownerOrNil
 {
-    NSArray *contents = [[self nib] instantiateWithOwner:ownerOrNil options:nil];
-    UIView *view = [contents count]? [contents objectAtIndex:0]: nil;
-    NSAssert ([view isKindOfClass:self], @"First object in nib '%@' was '%@'. Expected '%@'", [self nibName], view, self);
-    return view;
+    UINib *nib = [self nib];
+    if (nib) {
+        NSArray *contents = [nib instantiateWithOwner:ownerOrNil options:nil];
+        UIView *view = [contents count]? [contents objectAtIndex:0]: nil;
+        NSAssert ([view isKindOfClass:self], @"First object in nib '%@' was '%@'. Expected '%@'", [self nibName], view, self);
+        return view;
+    }
+    return nil;
 }
 
 - (void) removeSubviews

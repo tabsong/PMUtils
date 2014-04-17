@@ -10,6 +10,6 @@
 
 @interface UICollectionViewFlowLayout (PMUtils)
 
-- (BOOL) cell:(UICollectionViewCell *)cell requiresScrollAnimationToPosition:(UICollectionViewScrollPosition)scrollPosition;
+- (BOOL) requiresScrollAnimationToIndexPath:(NSIndexPath *)indexPath atPosition:(UICollectionViewScrollPosition)scrollPosition;
 
 @end

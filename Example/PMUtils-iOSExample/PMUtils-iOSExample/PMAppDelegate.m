@@ -15,12 +15,6 @@
 {
     // Override point for customization after application launch.
     
-    NSArray *array = @[@"", @"", @"", @"", @"", @"", @""];
-    
-    NSInteger dist = [array distanceFromIndex:0 toIndex:6 circular:YES];
-    
-    NSLog(@"%d", dist);
-    
     return YES;
 }
 							

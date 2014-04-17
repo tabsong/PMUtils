@@ -53,7 +53,7 @@
 	UIImage *imgtwo = [img blurredImageWithRadius:20
 									   iterations:4
 								  scaleDownFactor:4
-									   saturation:0
+									   saturation:1
 										tintColor:nil
 											 crop:CGRectZero];
 	duration = CACurrentMediaTime() - start;
