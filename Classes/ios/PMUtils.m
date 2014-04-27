@@ -31,10 +31,10 @@ NSInteger PMForwardCircularDistance(NSInteger fromIndex, NSInteger toIndex, NSRa
     toIndex -= inRange.location;
     
     if (fromIndex < 0 || fromIndex >= inRange.length) {
-        @throw([NSException exceptionWithName:@"Index Out Of Bounds" reason:[NSString stringWithFormat:@"fromIndex %d, is out of Bounds", fromIndex] userInfo:nil]);
+        @throw([NSException exceptionWithName:@"Index Out Of Bounds" reason:[NSString stringWithFormat:@"fromIndex %@, is out of Bounds", [NSNumber numberWithInteger:fromIndex]] userInfo:nil]);
     }
     else if (toIndex < 0 || toIndex >= inRange.length) {
-       @throw([NSException exceptionWithName:@"Index Out Of Bounds" reason:[NSString stringWithFormat:@"toIndex %d, is out of Bounds", toIndex] userInfo:nil]);
+       @throw([NSException exceptionWithName:@"Index Out Of Bounds" reason:[NSString stringWithFormat:@"toIndex %@, is out of Bounds", [NSNumber numberWithInteger:toIndex]] userInfo:nil]);
     }
     
     if (toIndex >= fromIndex) {
