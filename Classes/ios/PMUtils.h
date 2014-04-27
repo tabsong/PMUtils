@@ -39,4 +39,8 @@
 #define oneDay          (oneHour*24)
 #define oneWeek         (oneDay*7)
 
+extern NSInteger PMShortestCircularDistance(NSInteger fromIndex, NSInteger toIndex, NSRange inRange);
+extern NSInteger PMReverseCircularDistance(NSInteger fromIndex, NSInteger toIndex, NSRange inRange);
+extern NSInteger PMForwardCircularDistance(NSInteger fromIndex, NSInteger toIndex, NSRange inRange);
+
 #endif
