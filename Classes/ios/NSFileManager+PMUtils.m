@@ -25,7 +25,7 @@
 	size_t					size			= 0;
 	char					*str			= NULL;
 	NSString				*string			= nil;
-	
+    
 	size = getxattr([path UTF8String], [key UTF8String], NULL, 0, 0, 0);
 	if (size != -1)
 	{
