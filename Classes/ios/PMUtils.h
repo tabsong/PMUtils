@@ -21,12 +21,12 @@
 #import "NSIndexPath+PMUtils.h"
 #import "UITableView+PMUtils.h"
 #import "PMOrderedDictionary.h"
-#import "NSArray+PMUtils.h"
 #import "UICollectionView+PMUtils.h"
 #import "PMProtocolInterceptor.h"
 #import "UIScrollView+PMUtils.h"
 #import "UICollectionViewFlowLayout+PMUtils.h"
 #import "UICollectionReusableView+PMUtils.h"
+#import "NSManagedObject+PMUtils.h"
 
 #if DEBUG
 #define DLog(args...)   NSLog(args)
