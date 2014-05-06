@@ -26,6 +26,7 @@
 #import "UIScrollView+PMUtils.h"
 #import "UICollectionViewFlowLayout+PMUtils.h"
 #import "UICollectionReusableView+PMUtils.h"
+#import "NSDictionary+PMUtils.h"
 #import "NSManagedObject+PMUtils.h"
 
 #if DEBUG

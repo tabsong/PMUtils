@@ -24,6 +24,5 @@
 
 - (NSString *) replaceUnderscoresWithCamelCase;
 
-+ (NSString *) systemVersion;
 
 @end

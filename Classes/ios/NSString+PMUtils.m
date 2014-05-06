@@ -79,11 +79,6 @@
 	return YES; // x.y.z is included in x.y.z
 }
 
-+ (NSString *) systemVersion
-{
-	return [[UIDevice currentDevice] systemVersion];
-}
-
 - (BOOL) containsEmoji
 {
 	__block BOOL returnValue = NO;
