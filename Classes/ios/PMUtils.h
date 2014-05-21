@@ -28,6 +28,7 @@
 #import "UICollectionReusableView+PMUtils.h"
 #import "NSDictionary+PMUtils.h"
 #import "NSManagedObject+PMUtils.h"
+#import "UIImageView+PMUtils.h"
 
 #if DEBUG
 #define DLog(args...)   NSLog(args)
@@ -36,9 +37,11 @@
 #endif
 
 #define DEF_weakSelf    __weak __typeof(self) weakSelf = self;
-#define oneHour         (60*60)
-#define oneDay          (oneHour*24)
-#define oneWeek         (oneDay*7)
+
+extern NSTimeInterval const PMOneHour;
+extern NSTimeInterval const PMOneDay;
+extern NSTimeInterval const PMOneWeek;
+extern NSUInteger const PMBytesPerMegabyte;
 
 extern NSInteger PMShortestCircularDistance(NSInteger fromIndex, NSInteger toIndex, NSRange inRange);
 extern NSInteger PMReverseCircularDistance(NSInteger fromIndex, NSInteger toIndex, NSRange inRange);

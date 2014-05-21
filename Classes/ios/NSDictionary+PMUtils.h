@@ -12,4 +12,8 @@
 
 - (NSDictionary *) replaceKey:(id<NSCopying>)currentKey withKey:(id<NSCopying>)newKey;
 
+- (NSDictionary *) convertUnderscoredStringKeysToCamelCase;
+
+- (NSDictionary *) convertCamelCaseStringKeysToUnderscored;
+
 @end

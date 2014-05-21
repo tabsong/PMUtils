@@ -49,9 +49,7 @@
 	setxattr([path UTF8String], [key UTF8String], [value UTF8String], [value length], 0, 0);
 }
 
-/**
- * Only removes files directly underneath the specified directory. This method will *not* recurse into subdirectories.
- */
+
 - (void)shallowRemoveAllFilesInDirectory:(NSString *)path
 {
 	NSDirectoryEnumerator	*enumerator		= [self enumeratorAtPath:path];
@@ -68,6 +66,25 @@
 		}
 	}
 }
+
++ (NSString *) createCachesDirectoryWithName:(NSString *)name
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+	NSString *basePath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0];
+	NSString *path = [basePath stringByAppendingPathComponent:name];
+
+	BOOL isDir = NO;
+	// Create directory if necessary
+	if (![fileManager fileExistsAtPath:path isDirectory:&isDir]) {
+        NSError *error = nil;
+		[fileManager createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:&error];
+        NSParameterAssert(!error);
+    }
+	
+	return path;
+}
+
+
 
 
 @end

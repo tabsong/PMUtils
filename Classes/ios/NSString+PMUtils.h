@@ -22,7 +22,8 @@
 
 - (BOOL) containsEmoji;
 
-- (NSString *) replaceUnderscoresWithCamelCase;
+- (NSString *) camelCaseFromUnderscores;
 
+- (NSString *) underscoresFromCamelCase;
 
 @end

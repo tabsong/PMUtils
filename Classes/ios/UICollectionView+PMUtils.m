@@ -48,6 +48,7 @@ static inline CGFloat PMSquaredDistanceFromRectToPoint(CGRect rect, CGPoint poin
             nearestIndexPath = indexPath;
         }
     }
+    NSParameterAssert(nearestIndexPath);
     return nearestIndexPath;
 }
 
@@ -74,6 +75,7 @@ static inline CGFloat PMSquaredDistanceFromRectToPoint(CGRect rect, CGPoint poin
             }
         }
     }
+    NSParameterAssert(nearestIndexPath);
     return nearestIndexPath;
 }
 
