@@ -29,6 +29,7 @@
 #import "NSDictionary+PMUtils.h"
 #import "NSManagedObject+PMUtils.h"
 #import "UIImageView+PMUtils.h"
+#import "PMPair.h"
 
 #if DEBUG
 #define DLog(args...)   NSLog(args)
