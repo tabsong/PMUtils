@@ -67,23 +67,27 @@
 	}
 }
 
-+ (NSString *) createCachesDirectoryWithName:(NSString *)name
++ (NSString *) pathForCreatedCachesDirectoryWithName:(NSString *)name
 {
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-	NSString *basePath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0];
+    NSFileManager *fileManager = [self defaultManager];
+	NSString *basePath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject;
 	NSString *path = [basePath stringByAppendingPathComponent:name];
-
-	BOOL isDir = NO;
-	// Create directory if necessary
-	if (![fileManager fileExistsAtPath:path isDirectory:&isDir]) {
-        NSError *error = nil;
-		[fileManager createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:&error];
-        NSParameterAssert(!error);
-    }
-	
+    NSError *error = nil;
+    [fileManager createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:&error];
+    NSParameterAssert(!error);
 	return path;
 }
 
++ (NSURL *) URLForCreatedCachesDirectoryWithName:(NSString *)name
+{
+    NSFileManager *fileManager = [self defaultManager];
+    NSURL *baseURL = [fileManager URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask].lastObject;
+    NSURL *fullURL = [baseURL URLByAppendingPathComponent:name];
+    NSError *error = nil;
+    [fileManager createDirectoryAtURL:fullURL withIntermediateDirectories:YES attributes:nil error:&error];
+    NSParameterAssert(!error);
+    return fullURL;
+}
 
 
 

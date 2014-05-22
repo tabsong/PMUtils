@@ -12,9 +12,16 @@
 
 - (void) setImageEntity:(id)imageEntity
 {
+    [self setImageEntity:imageEntity success:nil failure:nil];
+}
+
+- (void) setImageEntity:(id)imageEntity
+                success:(void (^)(UIImage *image))success
+                failure:(void (^)(NSError *error))failure;
+{
     id<UIImageViewDelegate> delegate = [UIImageView delegate];
     NSParameterAssert(delegate);
-    [delegate setImageView:self imageForEntity:imageEntity];
+    [delegate setImageView:self imageForEntity:imageEntity success:success failure:failure];
 }
 
 + (void) setDelegate:(id<UIImageViewDelegate>)delegate

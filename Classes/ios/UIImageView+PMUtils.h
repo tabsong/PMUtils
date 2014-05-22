@@ -8,7 +8,12 @@
 #import <UIKit/UIKit.h>
 
 @protocol UIImageViewDelegate <NSObject>
-+ (void) setImageView:(UIImageView *)imageView imageForEntity:(id)imageEntity;
+
+- (void) setImageView:(UIImageView *)imageView
+       imageForEntity:(id)imageEntity
+              success:(void (^)(UIImage *image))successBlock
+              failure:(void (^)(NSError *error))failureBlock;
+
 @end
 
 
@@ -19,6 +24,9 @@
 
 - (void) setImageEntity:(id)imageEntity;
 
+- (void) setImageEntity:(id)imageEntity
+                success:(void (^)(UIImage *image))success
+                failure:(void (^)(NSError *error))failure;
 @end
 
 

@@ -25,6 +25,8 @@
 
 - (void)setXAttrStringValue:(NSString *)value forKey:(NSString *)key atPath:(NSString *)path;
 
-+ (NSString *) createCachesDirectoryWithName:(NSString *)name;
++ (NSString *) pathForCreatedCachesDirectoryWithName:(NSString *)name;
+
++ (NSURL *) URLForCreatedCachesDirectoryWithName:(NSString *)name;
 
 @end
