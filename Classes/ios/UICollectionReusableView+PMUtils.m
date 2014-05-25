@@ -33,7 +33,7 @@
     return sizingCell;
 }
 
-+ (NSString *)reuseID
++ (NSString *)defaultReuseIdentifier
 {
     return NSStringFromClass([self class]);
 }

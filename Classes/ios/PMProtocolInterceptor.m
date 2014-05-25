@@ -26,22 +26,35 @@ static inline BOOL selector_belongsToProtocol(SEL selector, Protocol * protocol)
 
 @implementation PMProtocolInterceptor
 
-- (instancetype)initWithInterceptedProtocol:(Protocol *)interceptedProtocol
+
+- (instancetype)initWithMiddleMan:(id)middleMan forProtocol:(Protocol *)interceptedProtocol
 {
     self = [super init];
     if (self) {
         _interceptedProtocols = [NSSet setWithObject:interceptedProtocol];
+        _middleMan = middleMan;
     }
     return self;
 }
 
-- (instancetype)initWithInterceptedProtocols:(NSSet *)interceptedProtocols
+- (instancetype)initWithMiddleMan:(id)middleMan forProtocols:(NSSet *)interceptedProtocols
 {
     self = [super init];
     if (self) {
         _interceptedProtocols = [interceptedProtocols copy];
+        _middleMan = middleMan;
     }
     return self;
+}
+
++ (instancetype)interceptorWithMiddleMan:(id)middleMan forProtocol:(Protocol *)interceptedProtocol
+{
+    return [[self alloc] initWithMiddleMan:middleMan forProtocol:interceptedProtocol];
+}
+
++ (instancetype)interceptorWithMiddleMan:(id)middleMan forProtocols:(NSSet *)interceptedProtocols
+{
+    return [[self alloc] initWithMiddleMan:middleMan forProtocols:interceptedProtocols];
 }
 
 - (id)forwardingTargetForSelector:(SEL)aSelector
