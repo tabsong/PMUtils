@@ -41,7 +41,7 @@ static inline CGFloat PMSquaredDistanceFromRectToPoint(CGRect rect, CGPoint poin
     
     for (NSIndexPath *indexPath in self.indexPathsForVisibleItems) {
         
-        CGFloat distance = [self squaredDistanceFromItemAtIndexPath:indexPath toPoint:point];
+        CGFloat distance = [self _squaredDistanceFromItemAtIndexPath:indexPath toPoint:point];
         
         if (distance < closestDistance) {
             closestDistance = distance;
@@ -67,7 +67,7 @@ static inline CGFloat PMSquaredDistanceFromRectToPoint(CGRect rect, CGPoint poin
             
             NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item inSection:section];
             
-            CGFloat distance = [self squaredDistanceFromItemAtIndexPath:indexPath toPoint:point];
+            CGFloat distance = [self _squaredDistanceFromItemAtIndexPath:indexPath toPoint:point];
             
             if (distance < closestDistance) {
                 closestDistance = distance;
@@ -86,7 +86,18 @@ static inline CGFloat PMSquaredDistanceFromRectToPoint(CGRect rect, CGPoint poin
     return CGPointMake(offsetX, offsetY);
 }
 
-- (CGFloat) squaredDistanceFromItemAtIndexPath:(NSIndexPath *)indexPath toPoint:(CGPoint)point
+
+- (CGPoint) contentOffsetInBoundsCenter
+{
+    CGPoint middlePoint = self.contentOffset;
+    middlePoint.x += self.bounds.size.width / 2.0f;
+    middlePoint.y += self.bounds.size.height / 2.0f;
+    return middlePoint;
+}
+
+#pragma mark - Private Methods
+
+- (CGFloat) _squaredDistanceFromItemAtIndexPath:(NSIndexPath *)indexPath toPoint:(CGPoint)point
 {
     UICollectionViewLayoutAttributes *attributes = [self layoutAttributesForItemAtIndexPath:indexPath];
     CGRect frame = attributes.frame;
