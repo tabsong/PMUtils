@@ -23,7 +23,10 @@
     id sizingCell = [cellCache objectForKey:key];
     
     if (!sizingCell) {
-        sizingCell = [[self class] instanceFromDefaultNibWithOwner:nil];
+        sizingCell = [self instanceFromDefaultNibWithOwner:nil];
+		if (!sizingCell) {
+			sizingCell = [self new];
+		}
         [cellCache setObject:sizingCell?: [NSNull null] forKey:key];
     }
     else if ([sizingCell isEqual:[NSNull null]]) {
