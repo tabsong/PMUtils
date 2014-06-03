@@ -1,5 +1,5 @@
-# /Users/petermeyers/Dev/Personal/PMUtils CHANGELOG
+# PMUtils CHANGELOG
 
-## 0.1.0
+## 0.0.40
 
 Initial release.
