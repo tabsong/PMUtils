@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name        = "PMUtils"
-  s.version     = File.read('VERSION')
+  s.version     = "0.0.46"
   s.summary     = "Categories on Foundation and UIKit classes that offer extended functionality."
   s.homepage    = "https://github.com/petermeyers1/#{s.name}"
   s.license     = 'MIT'
