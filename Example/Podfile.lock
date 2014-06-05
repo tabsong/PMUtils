@@ -1,5 +1,5 @@
 PODS:
-  - PMUtils (0.0.38)
+  - PMUtils (0.0.46)
 
 DEPENDENCIES:
   - PMUtils (from `../PMUtils.podspec`)
@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: ../PMUtils.podspec
 
 SPEC CHECKSUMS:
-  PMUtils: ddbba8d79cc374d3e21db44dffa1a8bb61669dd5
+  PMUtils: d63d08d739c2c59dacfe77a81bb36c42b9430415
 
-COCOAPODS: 0.32.1
+COCOAPODS: 0.33.1
