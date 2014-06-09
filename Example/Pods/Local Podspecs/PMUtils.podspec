@@ -11,4 +11,21 @@ Pod::Spec.new do |s|
   s.source_files = 'Classes/**/*.{h,m}'
   s.requires_arc = true
   s.frameworks   = 'Foundation', 'CoreData', 'UIKit'
+    
+  s.subspec 'PMAnimationQueue' do |animation_queue|
+  	animation_queue.source_files = 'Classes/**/PMAnimationQueue/*.{h,m}'
+  end
+  
+  s.subspec 'PMOrderedDictionary' do |ordered_dictionary|
+  	ordered_dictionary.source_files = 'Classes/**/PMOrderedDictionary/*.{h,m}'
+  end
+  
+  s.subspec 'PMPair' do |pair|
+  	pair.source_files = 'Classes/**/PMPair/*.{h,m}'
+  end
+  
+  s.subspec 'PMProtocolInterceptor' do |protocol_interceptor|
+  	protocol_interceptor.source_files = 'Classes/**/PMProtocolInterceptor/*.{h,m}'
+  end
+  
 end

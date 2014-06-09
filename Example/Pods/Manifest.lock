@@ -1,5 +1,13 @@
 PODS:
-  - PMUtils (0.0.46)
+  - PMUtils (0.0.46):
+    - PMUtils/PMAnimationQueue
+    - PMUtils/PMOrderedDictionary
+    - PMUtils/PMPair
+    - PMUtils/PMProtocolInterceptor
+  - PMUtils/PMAnimationQueue (0.0.46)
+  - PMUtils/PMOrderedDictionary (0.0.46)
+  - PMUtils/PMPair (0.0.46)
+  - PMUtils/PMProtocolInterceptor (0.0.46)
 
 DEPENDENCIES:
   - PMUtils (from `../PMUtils.podspec`)
@@ -9,6 +17,6 @@ EXTERNAL SOURCES:
     :path: ../PMUtils.podspec
 
 SPEC CHECKSUMS:
-  PMUtils: d63d08d739c2c59dacfe77a81bb36c42b9430415
+  PMUtils: 86cf3a3d8ab30ebdb2d6987eb05bb64c97b364b3
 
 COCOAPODS: 0.33.1

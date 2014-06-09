@@ -9,25 +9,25 @@
 #import "PMViewController.h"
 #import "PMUtils.h"
 
-@interface PMViewController ()
-@property (nonatomic, strong) UIImageView *one;
-@property (nonatomic, strong) UIImageView *two;
-@end
 
 @implementation PMViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+
+	/*
+	 * This example only illustrates how to use 
+	 * [UIImage blurredImageWithRadius:iterations:scaleDownFactor:saturation:tintColor].
+	 * You may use this view controller as a blank canvas to experment with other category methods
+	 * provided by PMUtils.
+	 *
+	 */
 	
-	CGRect rect = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height/2.0f);
-	self.one = [[UIImageView alloc] initWithFrame:rect];
-	rect.origin.y = rect.size.height;
-	self.two = [[UIImageView alloc] initWithFrame:rect];
-	
-	[self.view addSubview:self.one];
-	[self.view addSubview:self.two];
+	UILabel *label = [[UILabel alloc] initWithFrame:self.view.bounds];
+	label.text = @"Tap view to render blurred images.";
+	label.textAlignment = NSTextAlignmentCenter;
+	[self.view addSubview:label];
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,8 +59,16 @@
 	duration = CACurrentMediaTime() - start;
 	NSLog(@"2: time %f", duration);
 	
-	self.one.image = imgOne;
-	self.two.image = imgtwo;
+	CGRect rect = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height/2.0f);
+	UIImageView *one = [[UIImageView alloc] initWithFrame:rect];
+	rect.origin.y = rect.size.height;
+	UIImageView *two = [[UIImageView alloc] initWithFrame:rect];
+	
+	one.image = imgOne;
+	two.image = imgtwo;
+	
+	[self.view addSubview:one];
+	[self.view addSubview:two];
 }
 
 @end
