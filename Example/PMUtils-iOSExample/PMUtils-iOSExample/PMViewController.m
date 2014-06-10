@@ -12,10 +12,13 @@
 static CGFloat const PMPageControlHeight = 37.0f;
 
 @interface PMViewController () <UICollectionViewDelegate>
-@property (nonatomic, strong) UIPageControl *pageControl;
 @end
 
 @implementation PMViewController
+{
+	UIPageControl *_pageControl;
+	PMImageFilmstrip *_imageFilmstrip;
+}
 
 - (void)viewDidLoad
 {
@@ -29,19 +32,24 @@ static CGFloat const PMPageControlHeight = 37.0f;
 	 *
 	 */
 	
+	UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
+	[self.view addGestureRecognizer:tap];
+	
 	UILabel *label = [[UILabel alloc] initWithFrame:self.view.bounds];
 	label.text = @"Tap view to render blurred images.";
 	label.textAlignment = NSTextAlignmentCenter;
+	label.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	[self.view addSubview:label];
 	
 	CGRect pageControlFrame = CGRectMake(0, self.view.bounds.size.height - PMPageControlHeight , self.view.bounds.size.width, PMPageControlHeight);
-	self.pageControl = [[UIPageControl alloc] initWithFrame:pageControlFrame];
-	self.pageControl.hidden = YES;
-	[self.view addSubview:self.pageControl];
+	_pageControl = [[UIPageControl alloc] initWithFrame:pageControlFrame];
+	_pageControl.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+	_pageControl.hidden = YES;
+	[self.view addSubview:_pageControl];
 }
 
 
-- (IBAction)tap:(UITapGestureRecognizer *)sender
+- (void)tap:(UITapGestureRecognizer *)sender
 {
 	UIImage *img = [UIImage imageNamed:@"Sample.jpg"];
 
@@ -65,19 +73,25 @@ static CGFloat const PMPageControlHeight = 37.0f;
 	duration = CACurrentMediaTime() - start;
 	NSLog(@"2: time %f", duration);
 	
-	PMImageFilmstrip *imageFilmstrip = [PMImageFilmstrip imageFilmstripWithFrame:self.view.bounds
+	_imageFilmstrip = [PMImageFilmstrip imageFilmstripWithFrame:self.view.bounds
 																   imageEntities:@[imgOne, imgTwo]];
-	imageFilmstrip.delegate = self;
-	[self.view insertSubview:imageFilmstrip belowSubview:self.pageControl];
+	_imageFilmstrip.delegate = self;
+	_imageFilmstrip.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+	[self.view insertSubview:_imageFilmstrip belowSubview:_pageControl];
 	
-	self.pageControl.numberOfPages = imageFilmstrip.imageEntities.count;
-	self.pageControl.hidden = NO;
+	_pageControl.numberOfPages = _imageFilmstrip.imageEntities.count;
+	_pageControl.hidden = NO;
+}
+
+- (void) willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+	((UICollectionViewFlowLayout *)_imageFilmstrip.collectionViewLayout).itemSize = self.view.bounds.size;
 }
 
 - (void) scrollViewWillEndDragging:(PMImageFilmstrip *)imageFilmstrip withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
 {
 	NSIndexPath *indexPath = [imageFilmstrip indexPathForItemAtPoint:*targetContentOffset];
-	self.pageControl.currentPage = indexPath.item;
+	_pageControl.currentPage = indexPath.item;
 }
 
 @end
