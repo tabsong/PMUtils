@@ -5,6 +5,12 @@
       location = "group:../PMUtils.podspec">
    </FileRef>
    <FileRef
+      location = "group:../releasepod.command">
+   </FileRef>
+   <FileRef
+      location = "group:updatepod.command">
+   </FileRef>
+   <FileRef
       location = "group:PMUtils-iOSExample/PMUtils-iOSExample.xcodeproj">
    </FileRef>
    <FileRef
