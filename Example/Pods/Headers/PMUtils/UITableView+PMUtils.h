@@ -1,1 +1,1 @@
-../../../../Classes/ios/UITableView+PMUtils.h
+../../../../Classes/ios/UIKit+PMUtils/UITableView+PMUtils.h

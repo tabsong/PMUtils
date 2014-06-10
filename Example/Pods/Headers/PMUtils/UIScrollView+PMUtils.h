@@ -1,1 +1,1 @@
-../../../../Classes/ios/UIScrollView+PMUtils.h
+../../../../Classes/ios/UIKit+PMUtils/UIScrollView+PMUtils.h

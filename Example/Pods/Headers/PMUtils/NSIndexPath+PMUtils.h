@@ -1,1 +1,1 @@
-../../../../Classes/ios/NSIndexPath+PMUtils.h
+../../../../Classes/ios/Foundation+PMUtils/NSIndexPath+PMUtils.h
