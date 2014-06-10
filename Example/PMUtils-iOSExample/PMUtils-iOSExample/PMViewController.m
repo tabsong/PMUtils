@@ -9,6 +9,11 @@
 #import "PMViewController.h"
 #import "PMUtils.h"
 
+static CGFloat const PMPageControlHeight = 37.0f;
+
+@interface PMViewController () <UICollectionViewDelegate>
+@property (nonatomic, strong) UIPageControl *pageControl;
+@end
 
 @implementation PMViewController
 
@@ -17,7 +22,7 @@
     [super viewDidLoad];
 
 	/*
-	 * This example only illustrates how to use 
+	 * This example app only illustrates how to use PMImageFilmstrip, UIImageView's image entity delegate, and
 	 * [UIImage blurredImageWithRadius:iterations:scaleDownFactor:saturation:tintColor].
 	 * You may use this view controller as a blank canvas to experment with other category methods
 	 * provided by PMUtils.
@@ -28,13 +33,14 @@
 	label.text = @"Tap view to render blurred images.";
 	label.textAlignment = NSTextAlignmentCenter;
 	[self.view addSubview:label];
+	
+	CGRect pageControlFrame = CGRectMake(0, self.view.bounds.size.height - PMPageControlHeight , self.view.bounds.size.width, PMPageControlHeight);
+	self.pageControl = [[UIPageControl alloc] initWithFrame:pageControlFrame];
+	self.pageControl.hidden = YES;
+	[self.view addSubview:self.pageControl];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 - (IBAction)tap:(UITapGestureRecognizer *)sender
 {
 	UIImage *img = [UIImage imageNamed:@"Sample.jpg"];
@@ -50,7 +56,7 @@
 	NSLog(@"1: time %f", duration);
 
 	start = CACurrentMediaTime();
-	UIImage *imgtwo = [img blurredImageWithRadius:20
+	UIImage *imgTwo = [img blurredImageWithRadius:20
 									   iterations:4
 								  scaleDownFactor:4
 									   saturation:1
@@ -59,16 +65,19 @@
 	duration = CACurrentMediaTime() - start;
 	NSLog(@"2: time %f", duration);
 	
-	CGRect rect = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height/2.0f);
-	UIImageView *one = [[UIImageView alloc] initWithFrame:rect];
-	rect.origin.y = rect.size.height;
-	UIImageView *two = [[UIImageView alloc] initWithFrame:rect];
+	PMImageFilmstrip *imageFilmstrip = [PMImageFilmstrip imageFilmstripWithFrame:self.view.bounds
+																   imageEntities:@[imgOne, imgTwo]];
+	imageFilmstrip.delegate = self;
+	[self.view insertSubview:imageFilmstrip belowSubview:self.pageControl];
 	
-	one.image = imgOne;
-	two.image = imgtwo;
-	
-	[self.view addSubview:one];
-	[self.view addSubview:two];
+	self.pageControl.numberOfPages = imageFilmstrip.imageEntities.count;
+	self.pageControl.hidden = NO;
+}
+
+- (void) scrollViewWillEndDragging:(PMImageFilmstrip *)imageFilmstrip withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
+{
+	NSIndexPath *indexPath = [imageFilmstrip indexPathForItemAtPoint:*targetContentOffset];
+	self.pageControl.currentPage = indexPath.item;
 }
 
 @end

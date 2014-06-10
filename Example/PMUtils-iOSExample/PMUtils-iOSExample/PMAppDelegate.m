@@ -9,12 +9,32 @@
 #import "PMAppDelegate.h"
 #import "PMUtils.h"
 
+@interface PMAppDelegate () <UIImageViewDelegate>
+@end
+
 @implementation PMAppDelegate
+
+- (void) setImageView:(UIImageView *)imageView imageForEntity:(id)imageEntity success:(void (^)(UIImage *))successBlock failure:(void (^)(NSError *))failureBlock
+{
+	
+	/* In this example app, an imageEntity is just a UIImage.
+	 * In more complicated apps it may make sense for an image entity to be a 
+	 * key for your image cache.
+	 */
+	
+	if (successBlock) {
+		successBlock(imageEntity);
+	}
+	else {
+		imageView.image = imageEntity;
+	}
+}
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    
+    [UIImageView setDelegate:self];
     return YES;
 }
 							

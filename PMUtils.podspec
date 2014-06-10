@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name        = "PMUtils"
-  s.version     = "0.0.47"
+  s.version     = "0.0.48"
   s.summary     = "Categories on Foundation and UIKit classes that offer extended functionality."
   s.homepage    = "https://github.com/petermeyers1/#{s.name}"
   s.license     = 'MIT'
@@ -26,6 +26,10 @@ Pod::Spec.new do |s|
   
   s.subspec 'PMProtocolInterceptor' do |protocol_interceptor|
   	protocol_interceptor.source_files = 'Classes/**/PMProtocolInterceptor/*.{h,m}'
+  end
+  
+  s.subspec 'PMImageFilmstrip' do |image_filmstrip|
+  	image_filmstrip.source_files = 'Classes/**/PMImageFilmstrip/*.{h,m}'
   end
   
 end

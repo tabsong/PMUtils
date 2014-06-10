@@ -9,27 +9,31 @@
 #ifndef PMUtils_iOSExample_PMUtils_h
 #define PMUtils_iOSExample_PMUtils_h
 
-#import "UIView+PMUtils.h"
-#import "NSFileManager+PMUtils.h"
-#import "NSString+PMUtils.h"
-#import "UIDevice+PMUtils.h"
-#import "UIScreen+PMUtils.h"
-#import "NSData+PMUtils.h"
-#import "UIImage+PMUtils.h"
-#import "UIColor+PMUtils.h"
+#import "NSDictionary+PMUtils.h"
+#import "NSManagedObject+PMUtils.h"
 #import "NSThread+PMUtils.h"
 #import "NSIndexPath+PMUtils.h"
+#import "NSFileManager+PMUtils.h"
+#import "NSString+PMUtils.h"
+#import "NSData+PMUtils.h"
+
+#import "UIImage+PMUtils.h"
+#import "UIColor+PMUtils.h"
+#import "UIDevice+PMUtils.h"
+#import "UIScreen+PMUtils.h"
 #import "UITableView+PMUtils.h"
-#import "PMOrderedDictionary.h"
 #import "UICollectionView+PMUtils.h"
-#import "PMProtocolInterceptor.h"
 #import "UIScrollView+PMUtils.h"
 #import "UICollectionViewFlowLayout+PMUtils.h"
 #import "UICollectionReusableView+PMUtils.h"
-#import "NSDictionary+PMUtils.h"
-#import "NSManagedObject+PMUtils.h"
+#import "UIView+PMUtils.h"
 #import "UIImageView+PMUtils.h"
+
+#import "PMOrderedDictionary.h"
+#import "PMProtocolInterceptor.h"
 #import "PMPair.h"
+#import "PMImageFilmstrip.h"
+#import "PMAnimationQueue.h"
 
 #if DEBUG
 #define DLog(args...)   NSLog(args)
