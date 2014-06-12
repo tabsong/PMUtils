@@ -4,9 +4,9 @@ PMUtils is a useful library that contains extensive categories on Foundation and
 
 ## Requirements & Notes
 
-- PMUtils was built for iOS.
-- PMUtils and its subspecs all require a minimum iOS target of iOS 7.
-- PMUtils is currently without unit tests.
+- PMUtils was built for iOS and requires a minimum iOS target of iOS 7.
+- Thorough commenting of header files is currently in progress. (6/11/14).
+- PMUtils is currently lacking unit tests.
 
 ## How To Get Started
 
