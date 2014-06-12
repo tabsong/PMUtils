@@ -2,17 +2,14 @@
 
 PMUtils is a useful library that contains extensive categories on Foundation and UIKit classes for common tasks. PMUtils also contains a few custom classes for common use-cases such as PMOrderedDicionary and PMImageFilmstrip.
 
+## Requirements
+
+- PMUtils was built for iOS.
+- PMUtils and its subspecs all require a minimum iOS target of iOS 7.
+
 ## How To Get Started
 
 - Check out the documentation (coming soon).
-
-## Communication
-
-- If you **need help**, use [Stack Overflow](http://stackoverflow.com/questions/tagged/PMUtils). (Tag 'PMUtils')
-- If you'd like to **ask a general question**, use [Stack Overflow](http://stackoverflow.com/questions/tagged/PMUtils).
-- If you **found a bug**, open an issue.
-- If you **have a feature request**, open an issue.
-- If you **want to contribute**, submit a pull request.
 
 ### Installation with CocoaPods
 
@@ -25,14 +22,17 @@ platform :ios, '7.0'
 pod "PMUtils"
 ```
 
-## Requirements
-
-- PMUtils was built for iOS.
-- PMUtils and its subspecs all require a minimum iOS target of iOS 7.
-
 ## Usage
 
 The example project provides a canvas to play with the different classes and categories in PMUtils. To run the example project, clone the repo, run `pod install` from the Example directory, then launch PMUtils-iOSExample.xcworkspace.
+
+## Communication
+
+- If you **need help**, use [Stack Overflow](http://stackoverflow.com/questions/tagged/PMUtils). (Tag 'PMUtils')
+- If you'd like to **ask a general question**, use [Stack Overflow](http://stackoverflow.com/questions/tagged/PMUtils).
+- If you **found a bug**, open an issue.
+- If you **have a feature request**, open an issue.
+- If you **want to contribute**, submit a pull request.
 
 ## Credits
 
