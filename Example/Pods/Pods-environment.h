@@ -10,47 +10,47 @@
 #define COCOAPODS_POD_AVAILABLE_PMUtils
 #define COCOAPODS_VERSION_MAJOR_PMUtils 0
 #define COCOAPODS_VERSION_MINOR_PMUtils 0
-#define COCOAPODS_VERSION_PATCH_PMUtils 48
+#define COCOAPODS_VERSION_PATCH_PMUtils 52
 
 // PMUtils/Foundation+PMUtils
 #define COCOAPODS_POD_AVAILABLE_PMUtils_Foundation_PMUtils
 #define COCOAPODS_VERSION_MAJOR_PMUtils_Foundation_PMUtils 0
 #define COCOAPODS_VERSION_MINOR_PMUtils_Foundation_PMUtils 0
-#define COCOAPODS_VERSION_PATCH_PMUtils_Foundation_PMUtils 48
+#define COCOAPODS_VERSION_PATCH_PMUtils_Foundation_PMUtils 52
 
 // PMUtils/PMAnimationQueue
 #define COCOAPODS_POD_AVAILABLE_PMUtils_PMAnimationQueue
 #define COCOAPODS_VERSION_MAJOR_PMUtils_PMAnimationQueue 0
 #define COCOAPODS_VERSION_MINOR_PMUtils_PMAnimationQueue 0
-#define COCOAPODS_VERSION_PATCH_PMUtils_PMAnimationQueue 48
+#define COCOAPODS_VERSION_PATCH_PMUtils_PMAnimationQueue 52
 
 // PMUtils/PMImageFilmstrip
 #define COCOAPODS_POD_AVAILABLE_PMUtils_PMImageFilmstrip
 #define COCOAPODS_VERSION_MAJOR_PMUtils_PMImageFilmstrip 0
 #define COCOAPODS_VERSION_MINOR_PMUtils_PMImageFilmstrip 0
-#define COCOAPODS_VERSION_PATCH_PMUtils_PMImageFilmstrip 48
+#define COCOAPODS_VERSION_PATCH_PMUtils_PMImageFilmstrip 52
 
 // PMUtils/PMOrderedDictionary
 #define COCOAPODS_POD_AVAILABLE_PMUtils_PMOrderedDictionary
 #define COCOAPODS_VERSION_MAJOR_PMUtils_PMOrderedDictionary 0
 #define COCOAPODS_VERSION_MINOR_PMUtils_PMOrderedDictionary 0
-#define COCOAPODS_VERSION_PATCH_PMUtils_PMOrderedDictionary 48
+#define COCOAPODS_VERSION_PATCH_PMUtils_PMOrderedDictionary 52
 
 // PMUtils/PMPair
 #define COCOAPODS_POD_AVAILABLE_PMUtils_PMPair
 #define COCOAPODS_VERSION_MAJOR_PMUtils_PMPair 0
 #define COCOAPODS_VERSION_MINOR_PMUtils_PMPair 0
-#define COCOAPODS_VERSION_PATCH_PMUtils_PMPair 48
+#define COCOAPODS_VERSION_PATCH_PMUtils_PMPair 52
 
 // PMUtils/PMProtocolInterceptor
 #define COCOAPODS_POD_AVAILABLE_PMUtils_PMProtocolInterceptor
 #define COCOAPODS_VERSION_MAJOR_PMUtils_PMProtocolInterceptor 0
 #define COCOAPODS_VERSION_MINOR_PMUtils_PMProtocolInterceptor 0
-#define COCOAPODS_VERSION_PATCH_PMUtils_PMProtocolInterceptor 48
+#define COCOAPODS_VERSION_PATCH_PMUtils_PMProtocolInterceptor 52
 
 // PMUtils/UIKit+PMUtils
 #define COCOAPODS_POD_AVAILABLE_PMUtils_UIKit_PMUtils
 #define COCOAPODS_VERSION_MAJOR_PMUtils_UIKit_PMUtils 0
 #define COCOAPODS_VERSION_MINOR_PMUtils_UIKit_PMUtils 0
-#define COCOAPODS_VERSION_PATCH_PMUtils_UIKit_PMUtils 48
+#define COCOAPODS_VERSION_PATCH_PMUtils_UIKit_PMUtils 52
 
