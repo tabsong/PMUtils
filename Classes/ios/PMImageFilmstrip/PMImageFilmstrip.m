@@ -23,7 +23,7 @@
 //
 
 #import "PMImageFilmstrip.h"
-#import "PMUtils.h"
+#import "UIImageView+PMUtils.h"
 
 static NSString * const PMImageFilmstripCellReuseIdentifier = @"PMImageFilmstripCellReuseIdentifier";
 
