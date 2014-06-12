@@ -1,92 +1,3 @@
-
-
-#import "UIImage+PMUtils.h"
-#import <ImageIO/ImageIO.h>
-#import <Accelerate/Accelerate.h>
-
-static NSUInteger const bitsPerComponent = 8;
-static NSUInteger const bytesPerPixel = 4;
-
-@implementation UIImage (PMUtils)
-
-- (UIImage *) makeResizable:(PMDirection)direction;
-{
-    CGFloat leftInset = 0.0f;
-    CGFloat rightInset = 0.0f;
-    
-    if (direction & PMDirectionHorizontal) {
-        leftInset = floorf(self.size.width / 2.0f);
-        rightInset = leftInset + 1.0f;
-    }
-    
-    CGFloat topInset = 0.0f;
-    CGFloat bottomInset = 0.0f;
-    
-    if (direction & PMDirectionVertical) {
-        topInset = floorf(self.size.height / 2.0f);
-        bottomInset = topInset + 1.0f;
-    }
-    
-	UIEdgeInsets capInsets = UIEdgeInsetsMake(topInset, leftInset, bottomInset, rightInset);
-	
-	return [self resizableImageWithCapInsets:capInsets];
-}
-
-- (UIImage *) drawnImage
-{
-	UIGraphicsBeginImageContextWithOptions(self.size, YES, self.scale);
-	
-	[self drawAtPoint:CGPointZero];
-	UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-	
-	UIGraphicsEndImageContext();
-	
-	return image;
-}
-
-+ (UIImage *) cachedImageWithData:(NSData *)data
-{
-	CGImageSourceRef source = CGImageSourceCreateWithData((__bridge CFDataRef) data, NULL);
-
-	UIImage *image = [self imageFromSource:source];
-		
-	CFRelease(source);
-	
-	return image? : [UIImage imageWithData:data];
-}
-
-+ (UIImage *) cachedImageWithFile:(NSString *)path
-{
-	CGImageSourceRef source = CGImageSourceCreateWithURL((__bridge CFURLRef) path, NULL);
-	
-	UIImage *image = [self imageFromSource:source];
-
-	CFRelease(source);
-	
-	return image? : [UIImage imageWithContentsOfFile:path];
-}
-
-+ (UIImage *) imageFromSource:(CGImageSourceRef)source
-{
-	if (source) {
-		static NSDictionary *cacheOptionsDict = nil;
-		static dispatch_once_t cacheOptionsToken = 0;
-		dispatch_once(&cacheOptionsToken, ^{
-			cacheOptionsDict = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES]
-														   forKey:(id)kCGImageSourceShouldCache];
-		});
-		
-		CGImageRef cgImage = CGImageSourceCreateImageAtIndex(source, 0, (__bridge CFDictionaryRef)cacheOptionsDict);
-		UIImage *image = [UIImage imageWithCGImage:cgImage scale:[[UIScreen mainScreen] scale] orientation:UIImageOrientationUp];
-		CGImageRelease(cgImage);
-		return image;
-	}
-	return nil;
-}
-
-
-
-
 /*
  File: UIImage+PMUtils.m
  
@@ -197,6 +108,91 @@ static NSUInteger const bytesPerPixel = 4;
  PM
  4/28/2014
  */
+
+
+#import "UIImage+PMUtils.h"
+#import <ImageIO/ImageIO.h>
+#import <Accelerate/Accelerate.h>
+
+static NSUInteger const bitsPerComponent = 8;
+static NSUInteger const bytesPerPixel = 4;
+
+@implementation UIImage (PMUtils)
+
+- (UIImage *) makeResizable:(PMDirection)direction;
+{
+    CGFloat leftInset = 0.0f;
+    CGFloat rightInset = 0.0f;
+    
+    if (direction & PMDirectionHorizontal) {
+        leftInset = floorf(self.size.width / 2.0f);
+        rightInset = leftInset + 1.0f;
+    }
+    
+    CGFloat topInset = 0.0f;
+    CGFloat bottomInset = 0.0f;
+    
+    if (direction & PMDirectionVertical) {
+        topInset = floorf(self.size.height / 2.0f);
+        bottomInset = topInset + 1.0f;
+    }
+    
+	UIEdgeInsets capInsets = UIEdgeInsetsMake(topInset, leftInset, bottomInset, rightInset);
+	
+	return [self resizableImageWithCapInsets:capInsets];
+}
+
+- (UIImage *) drawnImage
+{
+	UIGraphicsBeginImageContextWithOptions(self.size, YES, self.scale);
+	
+	[self drawAtPoint:CGPointZero];
+	UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+	
+	UIGraphicsEndImageContext();
+	
+	return image;
+}
+
++ (UIImage *) cachedImageWithData:(NSData *)data
+{
+	CGImageSourceRef source = CGImageSourceCreateWithData((__bridge CFDataRef) data, NULL);
+
+	UIImage *image = [self imageFromSource:source];
+		
+	CFRelease(source);
+	
+	return image? : [UIImage imageWithData:data];
+}
+
++ (UIImage *) cachedImageWithFile:(NSString *)path
+{
+	CGImageSourceRef source = CGImageSourceCreateWithURL((__bridge CFURLRef) path, NULL);
+	
+	UIImage *image = [self imageFromSource:source];
+
+	CFRelease(source);
+	
+	return image? : [UIImage imageWithContentsOfFile:path];
+}
+
++ (UIImage *) imageFromSource:(CGImageSourceRef)source
+{
+	if (source) {
+		static NSDictionary *cacheOptionsDict = nil;
+		static dispatch_once_t cacheOptionsToken = 0;
+		dispatch_once(&cacheOptionsToken, ^{
+			cacheOptionsDict = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES]
+														   forKey:(id)kCGImageSourceShouldCache];
+		});
+		
+		CGImageRef cgImage = CGImageSourceCreateImageAtIndex(source, 0, (__bridge CFDictionaryRef)cacheOptionsDict);
+		UIImage *image = [UIImage imageWithCGImage:cgImage scale:[[UIScreen mainScreen] scale] orientation:UIImageOrientationUp];
+		CGImageRelease(cgImage);
+		return image;
+	}
+	return nil;
+}
 
 
 - (UIImage *)blurredImageWithRadius:(CGFloat)radius
