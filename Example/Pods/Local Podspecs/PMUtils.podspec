@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name        = "PMUtils"
-  s.version     = "0.0.52"
+  s.version     = "0.0.54"
   s.summary     = "Categories on Foundation and UIKit classes that offer extended functionality."
   s.homepage    = "https://github.com/petermeyers1/#{s.name}"
   s.license     = 'MIT'
@@ -42,6 +42,7 @@ Pod::Spec.new do |s|
   
   s.subspec 'PMImageFilmstrip' do |ss|
   	ss.source_files = 'Classes/ios/PMImageFilmstrip/PMImageFilmstrip.{h,m}'
+  	ss.dependency 'PMUtils/UIKit+PMUtils'
   end
   
 end

@@ -1,5 +1,5 @@
 PODS:
-  - PMUtils (0.0.52):
+  - PMUtils (0.0.54):
     - PMUtils/Foundation+PMUtils
     - PMUtils/PMAnimationQueue
     - PMUtils/PMImageFilmstrip
@@ -7,13 +7,14 @@ PODS:
     - PMUtils/PMPair
     - PMUtils/PMProtocolInterceptor
     - PMUtils/UIKit+PMUtils
-  - PMUtils/Foundation+PMUtils (0.0.52)
-  - PMUtils/PMAnimationQueue (0.0.52)
-  - PMUtils/PMImageFilmstrip (0.0.52)
-  - PMUtils/PMOrderedDictionary (0.0.52)
-  - PMUtils/PMPair (0.0.52)
-  - PMUtils/PMProtocolInterceptor (0.0.52)
-  - PMUtils/UIKit+PMUtils (0.0.52)
+  - PMUtils/Foundation+PMUtils (0.0.54)
+  - PMUtils/PMAnimationQueue (0.0.54)
+  - PMUtils/PMImageFilmstrip (0.0.54):
+    - PMUtils/UIKit+PMUtils
+  - PMUtils/PMOrderedDictionary (0.0.54)
+  - PMUtils/PMPair (0.0.54)
+  - PMUtils/PMProtocolInterceptor (0.0.54)
+  - PMUtils/UIKit+PMUtils (0.0.54)
 
 DEPENDENCIES:
   - PMUtils (from `../PMUtils.podspec`)
@@ -23,6 +24,6 @@ EXTERNAL SOURCES:
     :path: ../PMUtils.podspec
 
 SPEC CHECKSUMS:
-  PMUtils: 4f9ac3cbbd03e4e24e2b842d86f2f1059671f7d9
+  PMUtils: 9398cc3e349c358ef07c658455cadea0cabe9b04
 
 COCOAPODS: 0.33.1
