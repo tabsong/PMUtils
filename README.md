@@ -2,10 +2,11 @@
 
 PMUtils is a useful library that contains extensive categories on Foundation and UIKit classes for common tasks. PMUtils also contains a few custom classes for common use-cases such as PMOrderedDicionary and PMImageFilmstrip.
 
-## Requirements
+## Requirements & Notes
 
-- PMUtils was built for iOS.
-- PMUtils and its subspecs all require a minimum iOS target of iOS 7.
+- PMUtils was built for iOS and requires a minimum iOS target of iOS 7.
+- Thorough commenting of header files is currently in progress. (6/11/14).
+- PMUtils is currently lacking unit tests.
 
 ## How To Get Started
 
