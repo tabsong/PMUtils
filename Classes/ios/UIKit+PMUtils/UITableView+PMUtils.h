@@ -31,6 +31,6 @@
  *
  *  @param animation A constant that indicates how the reloading is to be animated, for example, fade out or slide out from the bottom. See “Table Cell Insertion and Deletion Animation” for descriptions of these constants. The animation constant affects the direction in which both the old and the new rows slide. For example, if the animation constant is UITableViewRowAnimationRight, the old rows slide out to the right and the new cells slide in from the right.
  */
-- (void) reloadRowsVisibleRowsWithRowAnimation:(UITableViewRowAnimation)animation;
+- (void) reloadVisibleRowsWithRowAnimation:(UITableViewRowAnimation)animation;
 
 @end

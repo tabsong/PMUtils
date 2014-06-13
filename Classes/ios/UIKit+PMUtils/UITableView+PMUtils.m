@@ -26,7 +26,7 @@
 
 @implementation UITableView (PMUtils)
 
-- (void) reloadRowsVisibleRowsWithRowAnimation:(UITableViewRowAnimation)animation
+- (void) reloadVisibleRowsWithRowAnimation:(UITableViewRowAnimation)animation
 {
 	NSArray *visibleRows = [self indexPathsForVisibleRows];
 	[self reloadRowsAtIndexPaths:visibleRows withRowAnimation:animation];

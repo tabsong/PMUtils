@@ -56,16 +56,19 @@ static inline CGFloat PMSquaredDistanceFromRectToPoint(CGRect rect, CGPoint poin
     NSIndexPath *nearestIndexPath = nil;
     CGFloat closestDistance = MAXFLOAT;
     
-    for (NSIndexPath *indexPath in self.indexPathsForVisibleItems) {
-        
-        CGFloat distance = [self _squaredDistanceFromItemAtIndexPath:indexPath toPoint:point];
-        
-        if (distance < closestDistance) {
-            closestDistance = distance;
-            nearestIndexPath = indexPath;
-        }
-    }
-    NSParameterAssert(nearestIndexPath);
+	if (CGSizeEqualToSize(CGSizeZero, self.contentSize) == NO) {
+		
+		for (NSIndexPath *indexPath in self.indexPathsForVisibleItems) {
+			
+			CGFloat distance = [self _squaredDistanceFromItemAtIndexPath:indexPath toPoint:point];
+			
+			if (distance < closestDistance) {
+				closestDistance = distance;
+				nearestIndexPath = indexPath;
+			}
+		}
+	}
+	
     return nearestIndexPath;
 }
 
@@ -90,7 +93,6 @@ static inline CGFloat PMSquaredDistanceFromRectToPoint(CGRect rect, CGPoint poin
             }
         }
     }
-    NSParameterAssert(nearestIndexPath);
     return nearestIndexPath;
 }
 
@@ -108,6 +110,17 @@ static inline CGFloat PMSquaredDistanceFromRectToPoint(CGRect rect, CGPoint poin
     middlePoint.x += self.bounds.size.width / 2.0f;
     middlePoint.y += self.bounds.size.height / 2.0f;
     return middlePoint;
+}
+
+- (NSIndexPath *) indexPathNearestToBoundsCenter
+{
+	CGPoint contentOffsetInBoundsCenter = [self contentOffsetInBoundsCenter];
+	return [self visibleIndexPathNearestToPoint:contentOffsetInBoundsCenter];
+}
+
+- (void) reloadVisibleItems
+{
+	[self reloadItemsAtIndexPaths:[self indexPathsForVisibleItems]];
 }
 
 #pragma mark - Private Methods

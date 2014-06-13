@@ -32,8 +32,12 @@
 // Less efficient than -visibleIndexPathNearestToPoint:
 - (NSIndexPath *) indexPathNearestToPoint:(CGPoint)point;
 
+- (NSIndexPath *) indexPathNearestToBoundsCenter;
+
 - (CGPoint) contentOffsetForCenteredRect:(CGRect)rect;
 
 - (CGPoint) contentOffsetInBoundsCenter;
+
+- (void) reloadVisibleItems;
 
 @end
